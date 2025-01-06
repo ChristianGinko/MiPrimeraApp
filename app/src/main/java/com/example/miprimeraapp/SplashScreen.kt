@@ -37,10 +37,9 @@ fun Splash(){
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ){
-        Image(painter= painterResource(id = R.drawable.android_logo),
+        Image(painter= painterResource(id = R.drawable.orden_jedi),
             contentDescription=null,
             modifier = Modifier
-                .background(color = Color.Black)
                 .size(150.dp,150.dp)
         )
         Text("¡Bienvenidos!",
