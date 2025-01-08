@@ -30,18 +30,18 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
 private val messages: List<MyMessage> = listOf(
-    MyMessage("Orden Jedi"),
-    MyMessage("Orden Jedi 2"),
-    MyMessage("Orden Jedi 3"),
-    MyMessage("Orden Jedi 4"),
-    MyMessage("Orden Jedi 5"),
-    MyMessage("Orden Jedi 6"),
-    MyMessage("Orden Jedi 7"),
-    MyMessage("Orden Jedi 8"),
-    MyMessage("Orden Jedi 9"),
-    MyMessage("Orden Jedi 10"),
-    MyMessage("Orden Jedi 11"),
-    MyMessage("Orden Jedi 12")
+    MyMessage("New Jedi Order"),
+    MyMessage("Separatists"),
+    MyMessage("Sith Empire"),
+    MyMessage("Rebel Alliance"),
+    MyMessage("New Republic"),
+    MyMessage("Galactic Republic"),
+    MyMessage("Old Republic"),
+    MyMessage("Mandalorians"),
+    MyMessage("Black Sun"),
+    MyMessage("Galactic Senate"),
+    MyMessage("Galactic Empire"),
+    MyMessage("Jedi Order")
 )
 
 @Composable
@@ -67,7 +67,13 @@ data class MyMessage(val title: String)
 
 @Composable
 fun MyMessages (messages: List<MyMessage>) {
-    LazyColumn{
+    LazyColumn(
+        modifier = Modifier
+            .padding (
+                top=30.dp,
+                bottom=50.dp
+            )
+    ){
         items(messages) {message ->
             MyComponent(message)
         }
