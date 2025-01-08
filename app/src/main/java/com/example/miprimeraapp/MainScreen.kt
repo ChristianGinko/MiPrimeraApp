@@ -31,18 +31,18 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
 private val messages: List<MyMessage> = listOf(
-    MyMessage("New Jedi Order"),
-    MyMessage("Separatists"),
-    MyMessage("Sith Empire"),
-    MyMessage("Rebel Alliance"),
-    MyMessage("New Republic"),
-    MyMessage("Galactic Republic"),
-    MyMessage("Old Republic"),
-    MyMessage("Mandalorians"),
-    MyMessage("Black Sun"),
-    MyMessage("Galactic Senate"),
-    MyMessage("Galactic Empire"),
-    MyMessage("Jedi Order")
+    MyMessage(R.drawable.new_jedi_order,"New Jedi Order"),
+    MyMessage(R.drawable.separatists,"Separatists"),
+    MyMessage(R.drawable.sith_empire,"Sith Empire"),
+    MyMessage(R.drawable.rebel_alliance,"Rebel Alliance"),
+    MyMessage(R.drawable.new_republic,"New Republic"),
+    MyMessage(R.drawable.galactic_republic,"Galactic Republic"),
+    MyMessage(R.drawable.old_republic,"Old Republic"),
+    MyMessage(R.drawable.mandalorians,"Mandalorians"),
+    MyMessage(R.drawable.black_sun,"Black Sun"),
+    MyMessage(R.drawable.galactic_senate,"Galactic Senate"),
+    MyMessage(R.drawable.galactic_empire,"Galactic Empire"),
+    MyMessage(R.drawable.orden_jedi,"Jedi Order")
 )
 
 @Composable
@@ -58,13 +58,13 @@ fun MyComponent (message: MyMessage) {
         .padding(20.dp)
         .fillMaxWidth()
     ) {
-        MyImage()
+        MyImage(message)
         Spacer(modifier = Modifier.width(100.dp))
         MyText(message)
     }
 }
 
-data class MyMessage(val title: String)
+data class MyMessage(val image: Int, val title: String)
 
 @Composable
 fun MyMessages (messages: List<MyMessage>) {
@@ -82,9 +82,9 @@ fun MyMessages (messages: List<MyMessage>) {
 }
 
 @Composable
-fun MyImage () {
+fun MyImage (message: MyMessage) {
     Image(
-        painter = painterResource(id = R.drawable.orden_jedi),
+        painter = painterResource(message.image),
         contentDescription = null,
         modifier = Modifier
             .size(64.dp)
