@@ -46,7 +46,9 @@ private val messages: List<MyMessage> = listOf(
 @Composable
 fun MainScreen() {
     val scrollState = rememberScrollState()
+    Column(modifier = Modifier.verticalScroll(scrollState)) {
         MyMessages(messages)
+    }
 }
 
 @Composable
