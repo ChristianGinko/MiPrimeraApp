@@ -6,6 +6,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.miprimeraapp.MainScreen
 import com.example.miprimeraapp.SplashScreen
+import com.example.miprimeraapp.TextScreen
 
 @Composable
 fun AppNavigation() {
@@ -18,6 +19,9 @@ fun AppNavigation() {
         }
         composable(AppScreens.MainScreen.route) {
             MainScreen()
+        }
+        composable(AppScreens.TextScreen.route) {
+            TextScreen()
         }
     }
 }

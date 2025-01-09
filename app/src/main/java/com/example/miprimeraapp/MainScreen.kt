@@ -34,6 +34,7 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.composable
 import com.example.miprimeraapp.Lista.messages
+import com.example.miprimeraapp.navigation.AppScreens
 
 @Composable
 fun MainScreen() {
@@ -57,7 +58,7 @@ fun MyComponent (
     }
 }
 
-data class MyMessage(val image: Int, val title: String)
+data class MyMessage(val image: Int, val title: String, val welcome: String)
 
 @Composable
 fun MyMessages (messages: List<MyMessage>) {
@@ -72,7 +73,6 @@ fun MyMessages (messages: List<MyMessage>) {
             MyComponent(
                 message=message,
                 onItemClick = { SelectedMessage ->
-
                 }
             )
         }
