@@ -1,5 +1,7 @@
 package com.example.miprimeraapp
 
+import android.content.Context
+import android.widget.Toast
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
@@ -28,9 +30,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.composable
 import com.example.miprimeraapp.Lista.messages
@@ -61,18 +65,22 @@ fun MyComponent (
 data class MyMessage(val image: Int, val title: String, val welcome: String)
 
 @Composable
-fun MyMessages (messages: List<MyMessage>) {
+fun MyMessages(messages: List<MyMessage>) {
+    // Get the current Context
+    val context = LocalContext.current
     LazyColumn(
         modifier = Modifier
-            .padding (
-                top=30.dp,
-                bottom=50.dp
+            .padding(
+                top = 30.dp,
+                bottom = 50.dp
             )
-    ){
-        items(messages) {message ->
+    ) {
+        items(messages) { message ->
             MyComponent(
-                message=message,
-                onItemClick = { SelectedMessage ->
+                message = message,
+                onItemClick = {
+                    // Use the context from LocalContext
+                    Toast.makeText(context, message.welcome, Toast.LENGTH_SHORT).show()
                 }
             )
         }

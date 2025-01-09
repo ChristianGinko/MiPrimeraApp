@@ -20,8 +20,5 @@ fun AppNavigation() {
         composable(AppScreens.MainScreen.route) {
             MainScreen()
         }
-        composable(AppScreens.TextScreen.route) {
-            TextScreen()
-        }
     }
 }
