@@ -37,7 +37,7 @@ fun Splash(){
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ){
-        Image(painter= painterResource(id = R.drawable.orden_jedi),
+        Image(painter= painterResource(id = R.drawable.black_star_wars),
             contentDescription=null,
             modifier = Modifier
                 .size(150.dp,150.dp)
