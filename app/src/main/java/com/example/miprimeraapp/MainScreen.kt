@@ -41,8 +41,8 @@ import com.example.miprimeraapp.Lista.messages
 import com.example.miprimeraapp.navigation.AppScreens
 
 @Composable
-fun MainScreen() {
-        MyMessages(messages)
+fun MainScreen(navController: NavController, messages: List<MyMessage>) {
+        MyMessages(navController, messages)
 }
 
 @Composable
@@ -62,27 +62,43 @@ fun MyComponent (
     }
 }
 
+@Composable
+fun Cartel(){
+    Row(
+        horizontalArrangement = Arrangement.Center,
+        modifier = Modifier
+            .fillMaxWidth()
+            .background(Color.Black)
+    ){
+        Image(
+            painter = painterResource(id = R.drawable.star_wars),
+            contentDescription = null
+        )
+    }
+}
+
 data class MyMessage(val image: Int, val title: String, val welcome: String)
 
 @Composable
-fun MyMessages(messages: List<MyMessage>) {
-    // Get the current Context
-    val context = LocalContext.current
-    LazyColumn(
-        modifier = Modifier
-            .padding(
-                top = 30.dp,
-                bottom = 50.dp
-            )
+fun MyMessages(navController: NavController, messages: List<MyMessage>) {
+    Column(modifier = Modifier
+        .padding(
+            top = 30.dp,
+            bottom = 50.dp
+        )
     ) {
-        items(messages) { message ->
-            MyComponent(
-                message = message,
-                onItemClick = {
-                    // Use the context from LocalContext
-                    Toast.makeText(context, message.welcome, Toast.LENGTH_SHORT).show()
-                }
-            )
+        Cartel()
+        LazyColumn() {
+            items(messages) { message ->
+                MyComponent(
+                    message = message,
+                    onItemClick = {
+                        navController.navigate(
+                            "textScreen/${message.image}/${message.title}/${message.welcome}"
+                        )
+                    }
+                )
+            }
         }
     }
 }
@@ -109,14 +125,22 @@ fun MyText (message: MyMessage) {
     }
 }
 
+/*
 @Preview(showBackground=true)
 @Composable
-fun MainScreenPreview(){
-    MainScreen()
+fun MainScreenPreview(navController: NavController, messages: List<MyMessage>){
+    MainScreen(navController, messages)
 }
 
 @Preview(showBackground=true)
 @Composable
-fun MyComponentPreview(){
-    MyMessages(messages)
+fun MyComponentPreview(navController: NavController, messages: List<MyMessage>){
+    MyMessages(navController, messages)
+}
+*/
+
+@Preview(showBackground=true)
+@Composable
+fun CartelPreview(){
+    Cartel()
 }
