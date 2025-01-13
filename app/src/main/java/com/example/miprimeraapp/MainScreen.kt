@@ -77,8 +77,6 @@ fun Cartel(){
     }
 }
 
-data class MyMessage(val image: Int, val title: String, val welcome: String)
-
 @Composable
 fun MyMessages(navController: NavController, messages: List<MyMessage>) {
     Column(modifier = Modifier
