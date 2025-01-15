@@ -37,7 +37,6 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.composable
-import com.example.miprimeraapp.Lista.messages
 import com.example.miprimeraapp.navigation.AppScreens
 
 @Composable
@@ -104,7 +103,7 @@ fun MyMessages(navController: NavController, messages: List<MyMessage>) {
 @Composable
 fun MyImage (message: MyMessage) {
     Image(
-        painter = painterResource(message.image),
+        painter = painterResource(id = message.image),
         contentDescription = null,
         modifier = Modifier
             .size(64.dp)

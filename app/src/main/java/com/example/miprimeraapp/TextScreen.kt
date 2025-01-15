@@ -31,7 +31,7 @@ fun TextScreen(navController: NavController, message: MyMessage) {
             .clickable{navController.navigate(AppScreens.MainScreen.route)}
     ) {
         Image(
-            painter = painterResource(message.image),
+            painter = painterResource(id = message.image),
             contentDescription = null,
             modifier = Modifier
                 .size(64.dp)
